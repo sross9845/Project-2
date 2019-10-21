@@ -71,6 +71,14 @@ app.get('/', function(req, res) {
   res.render('index');
 });
 
+app.get('/cpt',function(req,res){
+  res.send('whats up this is the cpt ranking page')
+})
+
+app.get('/resources',function(req,res){
+  res.send('whats up this is the resources page')
+})
+
 app.get('/profile', isLoggedIn, function(req, res) {
   res.render('profile');
 });
