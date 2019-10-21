@@ -4,17 +4,65 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Authentication</title>
-
     <!-- Latest compiled and minified CSS & JS -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
   </head>
   <body>
-    <div class="container">
+      <nav class="navbar navbar-expand-md navbar-light">
+          <a class="navbar-brand" href="/">
+            <img src="site_logo.png" width="80" height="50" class="d-inline-block align-top">
+            <span>Washington Street Fighter</span></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="/"><span class='small'>Home</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/events"><span class='small'>Global Events</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/events/local"><span class='small'>Local Events</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/events/saved"><span class='small'>Saved Events</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/cpt"><span class='small'>CPT Rankings</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/resources"><span class='small'>Resources</span></a>
+              </li>
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class='small'>Login/Profile</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="/profile">Go To Profile</a>
+                  <a class="dropdown-item" href="/auth/login">Login</a>
+                  <a class="dropdown-item" href="/auth/signup">Sign Up</a>
+                  <a class="dropdown-item" href="/auth/logout">Log Out</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+    <!-- <nav>
+        <h2>Washington Street Fighter</h2>
+        <a href="/auth/signup">Signup</a>
+        <a href="/auth/login">Login</a>
+        <a href="/auth/logout">Logout</a>
+        <a href="/profile">Profile</a>
+    </nav> -->
+    <main>
       <% include partials/alerts %>
       <%- body %>
-    </div>
-
-    <!-- <script src="//code.jquery.com/jquery.js"></script> -->
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
+    </main>
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
   </body>
 </html>

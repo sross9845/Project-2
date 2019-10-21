@@ -10,11 +10,12 @@ const helmet = require('helmet')
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const db = require('./models');
 const RateLimit = require('express-rate-limit');
+const axios = require('axios');
 
 app.set('view engine', 'ejs');
 app.use(require('morgan')('dev'));
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static('public'));
+app.use(express.static('./public'));
 app.use(ejsLayouts);
 app.use(helmet());
 
@@ -33,8 +34,8 @@ const signupLimiter = new RateLimit({
   message: 'Maximum accounts created, please try again later.'
 })
 // apply rate limiters to routers comment out when testing
-// app.use('/auth/login', loginLimiter);
-// app.use('/auth/signup', signupLimiter)
+app.use('/auth/login', loginLimiter);
+app.use('/auth/signup', signupLimiter);
 
 //store sessions in the database
 const sessionStore = new SequelizeStore({
@@ -75,6 +76,7 @@ app.get('/profile', isLoggedIn, function(req, res) {
 });
 
 app.use('/auth', require('./controllers/auth'));
+app.use('/events', require('./controllers/events'));
 
 var server = app.listen(process.env.PORT || 3000);
 

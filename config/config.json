@@ -1,6 +1,6 @@
 {
   "development": {
-    "database": "express_auth",
+    "database": "fgc_site",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },

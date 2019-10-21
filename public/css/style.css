@@ -1,0 +1,27 @@
+body{
+    /* background-image: url('https://i.pinimg.com/originals/98/17/96/981796c594018b63b77cb664a997f46b.jpg'); */
+    background-size: cover;
+    background-attachment: fixed;
+    
+}
+
+.navbar{
+    background:rgba(0, 0, 0, 0.7 );
+}
+
+
+
+.navbar span{
+    color:white;
+    font-size: 30px; 
+}
+
+.navbar img{
+    border: 2px solid black;
+    border-radius: 15%;
+    background:black;
+}
+
+.navbar .small{
+    font-size: 20px;
+}
