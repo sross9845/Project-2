@@ -1,8 +1,25 @@
 body{
-    /* background-image: url('https://i.pinimg.com/originals/98/17/96/981796c594018b63b77cb664a997f46b.jpg'); */
+    background-image: url('https://misfitkarma.com/image/187633-full_street-fighter-4k-wallpapers-top-free-street-fighter-4k.jpg');
     background-size: cover;
     background-attachment: fixed;
-    
+    color:white;
+}
+main{
+    background:rgba(22, 22, 22, 0.7);
+    margin:0;
+}
+
+hr{
+    border-color:white;
+}
+
+p{
+    color:white;
+    margin: 0;
+}
+
+h2{
+    color:white;
 }
 
 .navbar{
@@ -10,9 +27,9 @@ body{
 }
 
 .carousel-inner{
-    width:100%;
     max-height: 600px !important;
-  }
+    margin: 15px auto 30px auto
+}
 
 
 

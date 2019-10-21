@@ -10,7 +10,8 @@ const helmet = require('helmet')
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const db = require('./models');
 const RateLimit = require('express-rate-limit');
-const axios = require('axios');
+const axios = require('axios').default;
+app.use(express.urlencoded({ extended: false }));
 
 app.set('view engine', 'ejs');
 app.use(require('morgan')('dev'));
