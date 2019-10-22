@@ -1,9 +1,9 @@
-<h1>GLOBAL EVENTS / EVENTS HAPPENING SOON</h1>
-<h3>Powered by the Smash.gg API</h3>
+<br><h1><u>GLOBAL EVENTS / EVENTS HAPPENING SOON</u></h1>
+<h3 class='center'>Powered by the Smash.gg API</h3>
 
 <%responses.forEach(function(response){ %>
 
-    <hr><h2><a href="/events/<%=response.slug%>"><%=response.name%></a></h2> <hr>
+    <hr><h2><a href='/events/<%=response.slug%>'><%=response.name%></a></h2> <hr>
     <p>Time Zone: <%=response.timezone%></p>
     <p>Location: <%=response.city%> <%=response.addrState%></p>
     <p>Venue: <%=response.venueName%></p>

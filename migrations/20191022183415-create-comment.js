@@ -14,7 +14,7 @@ module.exports = {
       content: {
         type: Sequelize.STRING
       },
-      postId: {
+      eventId: {
         type: Sequelize.INTEGER
       },
       createdAt: {

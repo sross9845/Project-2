@@ -20,8 +20,12 @@ p{
     margin: 0;
 }
 
-h2{
-    color:white;
+h1{
+    text-align:center;
+}
+
+.center{
+    text-align:center;
 }
 
 .form-group{
