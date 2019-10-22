@@ -1,11 +1,13 @@
 body{
     background-image: url('https://misfitkarma.com/image/187633-full_street-fighter-4k-wallpapers-top-free-street-fighter-4k.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     color:white;
 }
 main{
-    background:rgba(22, 22, 22, 0.7);
+    background:rgba(22, 22, 22, 0.85);
     margin:0;
 }
 
@@ -22,8 +24,20 @@ h2{
     color:white;
 }
 
+.form-group{
+    margin: 15px auto;
+    width: 75%;
+}
+
+
+.btn{
+    display: block;
+    margin: auto;
+    width: 50%;
+}
+
 .navbar{
-    background:rgba(0, 0, 0, 0.7 );
+    background:rgba(95, 89, 89, 0.85);
 }
 
 .carousel-inner{
@@ -31,7 +45,9 @@ h2{
     margin: 0 auto 30px auto
 }
 
-
+.dropdown-toggle{
+    color:white;
+}
 
 .navbar span{
     color:white;

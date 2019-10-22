@@ -17,7 +17,9 @@ router.post('/signup', function(req, res) {
     },
     defaults:{
       name: req.body.name,
-      password: req.body.password
+      password: req.body.password,
+      cfn: req.body.cfn,
+      character: req.body.character
     }
   }).then(function([user, created]){
     if(created){
@@ -35,7 +37,7 @@ router.post('/signup', function(req, res) {
     }
   }).catch(function(err){
     //catch errors
-    console.log(err);
+    req.flash('error', err);
     res.redirect('/auth/signup');
   })
 });

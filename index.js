@@ -24,14 +24,14 @@ app.use(helmet());
 const loginLimiter = new RateLimit({
   //ms in the form of 5 minutes
   windowMs: 1000 * 60 * 5,
-  max: 3,
+  max: 1000,
   message: 'Maximum login attempts exceeded, please try again later.'
 })
 
 const signupLimiter = new RateLimit({
   //ms in the form of 60 minutes
   windowMs: 1000 * 60 * 60,
-  max: 3,
+  max: 1000,
   message: 'Maximum accounts created, please try again later.'
 })
 // apply rate limiters to routers comment out when testing

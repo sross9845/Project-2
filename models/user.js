@@ -1,6 +1,5 @@
 'use strict';
 const bcrypt = require('bcrypt');
-
 module.exports = (sequelize, DataTypes) => {
   const user = sequelize.define('user', {
     name: {
@@ -20,6 +19,8 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
+    cfn: DataTypes.STRING,
+    character: DataTypes.STRING,
     password:{ 
       type:DataTypes.STRING,
         validate:{
@@ -29,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
           }
       }
     }
-  }, {
+  },{
     hooks: {
       beforeCreate: function(pendingUser, options){
         if(pendingUser && pendingUser.password){
@@ -41,6 +42,8 @@ module.exports = (sequelize, DataTypes) => {
   });
   user.associate = function(models) {
     // associations can be defined here
+    models.user.hasMany(models.event);
+    models.user.hasMany(models.saved);
   };
 
   user.prototype.validPassword = function(passwordTyped){
@@ -57,3 +60,4 @@ module.exports = (sequelize, DataTypes) => {
 
   return user;
 };
+ 

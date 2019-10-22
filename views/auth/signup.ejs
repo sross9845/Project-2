@@ -1,17 +1,28 @@
 <form action="/auth/signup" method="POST">
   <div class="form-group">
-    <label for="authEmail">Email</label>
+    <label for="authEmail"><h3>Email</h3></label>
     <input id="authEmail" class="form-control" type="email" name="email">
   </div>
 
   <div class="form-group">
-    <label for="authName">Name</label>
+    <label for="authName"><h3>Name</h3></label>
     <input id="authName" class="form-control" type="text" name="name">
   </div>
 
   <div class="form-group">
-    <label for="authPassword">Password</label>
+    <label for="character"><h3>Chracter You Play(optional):</h3></label>
+    <input id="character" class="form-control" type="text" name="character">
+  </div>
+
+  <div class="form-group">
+    <label for="cfn"><h3>CFN (optional):</h3></label>
+    <input id="character" class="form-control" type="text" name="cfn">
+  </div>
+
+  <div class="form-group">
+    <label for="authPassword"><h3>Password</h3></label>
     <input id="authPassword" class="form-control" type="password" name="password">
+    <p>Password must be atleast 8 characters.</p>
   </div>
 
   <input class="btn btn-primary" type="submit">
