@@ -1,5 +1,13 @@
 <br>
 <h1><u><%= response.name %></u></h1>
+<br>
+<img width="600" height="400" src='<%=response.images[0].url%>'>
 <hr>
 <h2 class='center'>Register/Look at the bracket at the <a href='https://smash.gg/<%= response.slug%>'>Smash.gg Tournament Site</a></h2>
 <hr>
+<h2 class='center'>Venue: <%=response.venueName%> | <%=response.venueAddress%></h2>
+<hr>
+
+<p>Primary Contact: <%=response.primaryContact%></p>
+<br>
+<p>Rules: <%=response.rules%></p>

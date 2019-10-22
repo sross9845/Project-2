@@ -16,8 +16,8 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.STRING,
       validate:{
         len:{
-          args: [1,200],
-          msg: 'Name must be between 1 and 200 characters'
+          args: [1,500],
+          msg: 'Description must be between 1 and 500 characters'
         }
       }
     },

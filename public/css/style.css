@@ -23,6 +23,11 @@ p{
 h1{
     text-align:center;
 }
+img{
+    display:block;
+    margin: 0 auto;
+    border: 10px solid black;
+}
 
 .center{
     text-align:center;
@@ -42,6 +47,7 @@ h1{
 
 .navbar{
     background:rgba(95, 89, 89, 0.85);
+    border: 7px solid black;
 }
 
 .carousel-inner{

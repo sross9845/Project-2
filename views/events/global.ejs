@@ -6,7 +6,7 @@
     <hr><h2><a href='/events/<%=response.slug%>'><%=response.name%></a></h2> <hr>
     <p>Time Zone: <%=response.timezone%></p>
     <p>Location: <%=response.city%> <%=response.addrState%></p>
-    <p>Venue: <%=response.venueName%></p>
-    <p>Venue Address: <%=response.venueAddress%></p>
+    <p>Start Time: <%=new Date(parseInt(response.startAt) * 1000)%></p>
+    <p>End Time: <%=new Date(parseInt(response.endAt) * 1000)%></p>
     <br>
 <%})%>
