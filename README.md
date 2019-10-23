@@ -5,7 +5,7 @@ Being an avid fighting game fan I wanted a central place where people can list e
 
 ## MVP
 - [x] Show tournaments happening around the world (prototyped and can be improved by Graph QL).
-- [ ] Be able to create events 
+- [x] Be able to create events 
 - [x] Show event page and info. Where to register and a Description.
 - [ ] Save events to your saved events showing event times.
 - [ ] Links to relative articles and discussion platforms

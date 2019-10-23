@@ -1,9 +1,15 @@
 <form action="/events/local/new" method="POST">
     <p>Name of your event!</p>
     <input type="text" name="name" id="name" placeholder="Name..."><br />
-    <p>Please list the date also the start and ending time of your event!</p>
-    <input type="text" name="time" id="time" placeholder="Time start and end"><br />
-    <p>List your event address</p>
+    <p>City the event is taking place</p>
+    <input type="text" name="city" id="city" placeholder="City"><br />
+    <p>Please choose the date of your event!</p>
+    <input type="date" name="date" id="date"><br />
+    <p>Please select the start time of your event!</p>
+    <input type="time" name="time" id="startTime"><br />
+    <p>Please select the end time of your event!</p>
+    <input type="time" name="time" id="endTime"><br />
+    <p>List your venue name and/or address</p>
     <input type="text" name="venue" id="venue" placeholder="Venue Address"><br />
     <p>Lets now list your description of your event. Things to possibly include</p>
     <ul>

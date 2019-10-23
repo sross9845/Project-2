@@ -1,11 +1,14 @@
-<h1 class='center'>Here are the local events people in our commmunity have posted.</h1>
+<h1 class='center'><u>Here are the local events people in our commmunity have posted.</u></h1>
 <h2 class='center'>Click each event to find out more!</h2>
 <h2 class='center'><a href='/events/local/new'>Create An Event!</a></h2>
 <hr>
 <% events.forEach(function(event){%>
     <h2><a href='/events/local/<%=event.id%>'><%= event.name %></a></h2>
     <hr>
-    <p><%=event.venue%></p>
-    <p><%=event.time%></p>
+    <p>City:<%=event.city%></p>
+    <p>Venue: <%=event.venue%></p>
+    <p>Date: <%=event.date%></p>
+    <p>Time: <%=event.time%></p>
+    <br>
     <hr>
 <%})%>
