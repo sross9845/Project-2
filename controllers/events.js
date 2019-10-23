@@ -24,10 +24,20 @@ router.get('/tournament/:slug',function(req,res){
     })
 })
 
+router.post('/local/new', function(req,res){
+    db.author.create(req.body)
+        .then(function(author){
+            res.redirect('/authors')
+        });
+});
 
 
 router.get('/local',function(req,res){
-    res.send('whats up this is the local events page')
+    db.event.findAll()
+    .then(function(posts){
+        res.render('events/local', {posts})
+
+    })
 })
 router.get('/saved',function(req,res){
     res.send('whats up this is the saved events page')
