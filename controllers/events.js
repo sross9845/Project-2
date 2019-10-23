@@ -24,10 +24,14 @@ router.get('/tournament/:slug',function(req,res){
     })
 })
 
+router.get('/local/new', function(req,res){
+    res.render('events/new');
+});
+
 router.post('/local/new', function(req,res){
-    db.author.create(req.body)
-        .then(function(author){
-            res.redirect('/authors')
+    db.event.create(req.body)
+        .then(function(event){
+            res.redirect('events/local')
         });
 });
 
