@@ -9,31 +9,24 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       date: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       startTime: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       endTime: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       city: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       venue: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       description: {
-        allowNull: false,
         type: Sequelize.STRING
       },
       userId: {
