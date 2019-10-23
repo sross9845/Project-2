@@ -41,10 +41,18 @@ router.get('/local',function(req,res){
     db.event.findAll()
     .then(function(events){
         res.render('events/local', {events})
-
     })
 })
-router.get('/saved',function(req,res){
+
+router.get('/local/:id', function(req,res){
+    db.event.findByPk(req.params.id)
+    .then(function(event){
+        console.log(event)
+        res.render('events/singleLocal', {event})
+    })
+})
+
+router.get('/saved',isLoggedIn,function(req,res){
     res.send('whats up this is the saved events page')
 })
 
