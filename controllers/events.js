@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('../config/ppconfig')
+const isLoggedIn = require('../middleware/isLoggedIn')
 const db = require('../models');
 const axios = require('axios').default;
 const tournamentsUrl = 'https://api.smash.gg/api/-/gg_api./public/tournaments/schedule;filter=%7B%22upcoming%22%3Atrue%2C%22videogameIds%22%3A7%7D;page=1;per_page=20;reset=false;schedule=true?returnMeta=true';
@@ -24,22 +25,22 @@ router.get('/tournament/:slug',function(req,res){
     })
 })
 
-router.get('/local/new', function(req,res){
-    res.render('events/new');
+router.get('/local/new',isLoggedIn, function(req,res){
+    res.render('events/new',{user:req.user});
 });
 
 router.post('/local/new', function(req,res){
     db.event.create(req.body)
         .then(function(event){
-            res.redirect('events/local')
+            res.redirect('/events/local')
         });
 });
 
 
 router.get('/local',function(req,res){
     db.event.findAll()
-    .then(function(posts){
-        res.render('events/local', {posts})
+    .then(function(events){
+        res.render('events/local', {events})
 
     })
 })
