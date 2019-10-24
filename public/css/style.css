@@ -30,6 +30,16 @@ img{
     border: 10px solid black;
 }
 
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: right;
+}
+
 .container{
     border: 3px solid black;
 }
