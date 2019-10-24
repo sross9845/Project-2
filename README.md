@@ -1,7 +1,10 @@
 # Washington Street Fighter Web App 
 Please allow 10-15 seconds for the site to load
+
 Link to the site: https://sleepy-brook-11754.herokuapp.com/
+
 Technologies used: HTMl, CSS, JS, Node.js, Sequelize, Express, and EJS.
+
 API Used: Smash.gg API
 
 ## Description
