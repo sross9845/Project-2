@@ -1,14 +1,16 @@
-body{
+html{
     background-image: url('https://images.wallpaperscraft.com/image/street_fighter_5_capcom_fighter_106265_2104x1080.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    color:white;
 }
-main{
+
+body{
     background:rgba(22, 22, 22, 0.85);
-    margin:0;
+    color:white;
+    margin-bottom: 1.5em;
+
 }
 
 hr{
@@ -31,6 +33,7 @@ img{
 }
 
 footer {
+    display:block;
     position: fixed;
     left: 0;
     bottom: 0;

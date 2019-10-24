@@ -46,7 +46,7 @@ router.delete('/:id', function(req,res) {
 })
 
 
-router.get('/local',function(req,res){
+router.get('/local', isLoggedIn, function(req,res){
     db.event.findAll({
         order: [
             ['date', 'ASC']
@@ -91,7 +91,7 @@ router.put('/local/:id', function(req,res){
 })
 
 
-router.post('/local/:id/comments', function(req,res){
+router.post('/local/:id/comments', isLoggedIn, function(req,res){
     db.comment.create({
         name: req.body.name,
         content: req.body.content,
