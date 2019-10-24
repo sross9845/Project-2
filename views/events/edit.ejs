@@ -1,0 +1,26 @@
+<form onkeydown="return event.key != 'Enter';" action="/events/local/<%=event.id%>/?_method=PUT" method="POST">
+    <p>Name of your event!</p>
+    <input type="text" name="name" id="name" value="<%=event.name%>"><br>
+    <p>City the event is taking place</p>
+    <input type="text" name="city" id="city" value="<%=event.city%>"><br>
+    <p>Please choose the date of your event!</p>
+    <input type="date" name="date" id="date" value="<%=event.date%>"><br>
+    <p>Please tell us the start time of your event!</p>
+    <input type="text" name="startTime" id="startTime" value="<%=event.startTime%>"><br>
+    <p>Please tell us the end time of your event!</p>
+    <input type="text" name="endTime" id="endTime" value="<%=event.endTime%>"><br>
+    <p>List your venue name and/or address</p>
+    <input type="text" name="venue" id="venue" value="<%=event.venue%>"><br>
+    <p>Lets now list your description of your event. Things to possibly include</p>
+    <ul>
+        <li>How to register/Link to register</li>
+        <li>General Description of Event</li>
+        <li>Rules</li>
+        <li>History of your event</li>
+        <li>Relevent links (facebook, twitter,discord, etc...)</li>
+        <li>Primary Contact for event</li>
+    </ul>
+    <textarea name="description" id="description" rows="10" cols="50" ><%=event.description%></textarea><br>
+    <input type="hidden" name="userId" id="userId" value="<%=user.id%>"><br>
+    <input type="submit" value="Edit Event">
+</form>

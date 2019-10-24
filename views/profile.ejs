@@ -1,3 +1,15 @@
-<h2>Profile Page</h2>
+
+<h1><u>Profile Page for:</u> <%=user.name%></h1>
+<br>
+<hr>
+<h2>Character Main: <%=user.character%> </h2>
+<h2>CFN: <%=user.cfn%></h2>
+<br>
+<br>
+<h1>Events Created by This User</h1>
+<% events.forEach(function(event){%>
+    <h2><a href='/events/local/<%=event.id%>'><%=event.name%></a></h2>
+    <button><a href='/events/edit/<%=event.id%>'>Edit This Post!</a></button>
+<%})%>
 
 

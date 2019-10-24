@@ -81,7 +81,13 @@ app.get('/resources',function(req,res){
 })
 
 app.get('/profile', isLoggedIn, function(req, res) {
-  res.render('profile');
+  db.event.findAll({
+    where: {
+      userId : req.user.id
+    }
+  }).then(function(events){
+  res.render('profile',{events,user:req.user});
+  })
 });
 
 app.use('/auth', require('./controllers/auth'));

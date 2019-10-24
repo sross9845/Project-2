@@ -20,6 +20,13 @@ router.get('/',function(req,res){
     })
 })
 
+router.get('/edit/:id',function(req,res){
+    db.event.findByPk(req.params.id)
+    .then(function(event){
+        res.render('events/edit', {event, user: req.user})
+    })
+})
+
 router.get('/tournament/:slug',function(req,res){
     axios.get( tournamentUrl + req.params.slug).then(function(response){
         res.render('events/event', {
@@ -70,10 +77,17 @@ router.get('/local/:id', function(req,res){
                 eventId: req.params.id
             }
         }).then(function(comments){
-            console.log(event)
             res.render('events/singleLocal', {event,comments,user:req.user})
 
         })
+    })
+})
+
+router.put('/local/:id', function(req,res){
+    db.event.findByPk(req.params.id)
+    .then(function(event){
+        event.update(req.body)
+        res.redirect(`/events/local/${req.params.id}`)
     })
 })
 
