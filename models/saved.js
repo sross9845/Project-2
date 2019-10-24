@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   saved.associate = function(models) {
     // associations can be defined here
+    models.saved.belongsTo(models.user);
   };
   return saved;
 };

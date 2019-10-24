@@ -58,7 +58,7 @@ router.get('/local',function(req,res){
         ]
     })
     .then(function(events){
-        res.render('events/local', {events})
+        res.render('events/local', {events, user:req.user})
     })
 })
 
@@ -78,7 +78,7 @@ router.get('/local/:id', function(req,res){
 })
 
 router.post('/saved', function(req, res) {
-    db.pokemon.findOrCreate({
+    db.saved.findOrCreate({
         where:{
             name:req.body.name
         },
@@ -105,7 +105,14 @@ router.post('/local/:id/comments', function(req,res){
     });
 
 router.get('/saved',isLoggedIn,function(req,res){
-    res.render('whats up this is the saved events pa')
+    db.saved.findAll({
+        where:{
+            userId: req.user.id
+        }
+    })
+    .then(function(events){
+        res.render('events/saved',{events})
+    })
 })
 
 module.exports = router;
