@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     endTime: DataTypes.STRING,
     city: DataTypes.STRING,
     venue: DataTypes.STRING,
-    description: DataTypes.STRING,
+    description: DataTypes.TEXT,
     userId: DataTypes.INTEGER
   }, {});
   event.associate = function(models) {
