@@ -11,7 +11,10 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
-      time: {
+      date: {
+        type: Sequelize.STRING
+      },
+      startTime: {
         type: Sequelize.STRING
       },
       venue: {

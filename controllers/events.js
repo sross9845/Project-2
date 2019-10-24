@@ -3,9 +3,12 @@ const router = express.Router();
 const passport = require('../config/ppconfig')
 const isLoggedIn = require('../middleware/isLoggedIn')
 const db = require('../models');
+const methodOverride = require('method-override');
 const axios = require('axios').default;
 const tournamentsUrl = 'https://api.smash.gg/api/-/gg_api./public/tournaments/schedule;filter=%7B%22upcoming%22%3Atrue%2C%22videogameIds%22%3A7%7D;page=1;per_page=20;reset=false;schedule=true?returnMeta=true';
 const tournamentUrl = 'https://api.smash.gg/tournament/'
+router.use(methodOverride('_method'));
+
 
 
 
@@ -36,6 +39,17 @@ router.post('/local/new', function(req,res){
         });
 });
 
+router.delete('/:id', function(req,res) {
+	db.saved.destroy({
+		where: {
+    		id: req.params.id
+    }
+	})
+	.then(function(event) {
+		res.redirect('/events/saved')
+	})
+})
+
 
 router.get('/local',function(req,res){
     db.event.findAll({
@@ -63,6 +77,23 @@ router.get('/local/:id', function(req,res){
     })
 })
 
+router.post('/saved', function(req, res) {
+    db.pokemon.findOrCreate({
+        where:{
+            name:req.body.name
+        },
+        defaults:{
+            venue: req.body.venue,
+            date: req.body.date,
+            startTime: req.body.startTime,
+            userId: req.body.userId
+        }
+    })
+        .then(function(save) {
+            res.redirect('/events/saved')
+        })
+    });
+
 router.post('/local/:id/comments', function(req,res){
     db.comment.create({
         name: req.body.name,
@@ -74,7 +105,7 @@ router.post('/local/:id/comments', function(req,res){
     });
 
 router.get('/saved',isLoggedIn,function(req,res){
-    res.send('whats up this is the saved events page')
+    res.render('whats up this is the saved events pa')
 })
 
 module.exports = router;

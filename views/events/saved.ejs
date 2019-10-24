@@ -1,0 +1,9 @@
+<% saved.forEach(function(event) { %>
+    <div>
+        <h2><a href="/events/local/<%= event.id %>"><%= event.name %></a></h2>
+        <form method="POST" action="/events/<%=event.id%>/?_method=DELETE">
+            <input type="submit" value="Remove event from Saved.">
+        </form>
+    </div>
+    <% }); %>
+</div>

@@ -11,5 +11,14 @@
     <p>Start Time: <%=event.startTime%></p>
     <p>End Time: <%=event.endTime%></p>
     <br>
+    <form method="POST" action="/events/saved">
+        <input hidden type="text" name="name" value="<%= event.name %>">
+        <input hidden type="text" name="date" value="<%= event.date %>">
+        <input hidden type="text" name="startTime" value="<%= event.startTime %>">
+        <input hidden type="text" name="venue" value="<%= event.venue %>">
+        
+        <button type="submit">Add to Saved Events</button>
+    </form>
+    <br>
     <hr>
 <%})%>
