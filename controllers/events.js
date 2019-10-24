@@ -10,8 +10,6 @@ const tournamentUrl = 'https://api.smash.gg/tournament/'
 router.use(methodOverride('_method'));
 
 
-
-
 router.get('/',function(req,res){
     axios.get(tournamentsUrl).then(function(response){
         res.render('events/global',{responses: response.data.items.entities.tournament})
@@ -35,25 +33,15 @@ router.get('/tournament/:slug',function(req,res){
     })
 })
 
-router.get('/local/new',isLoggedIn, function(req,res){
-    res.render('events/new',{user:req.user});
-});
-
-router.post('/local/new', function(req,res){
-    db.event.create(req.body)
-        .then(function(event){
-            res.redirect('/events/local')
-        });
-});
 
 router.delete('/:id', function(req,res) {
-	db.saved.destroy({
-		where: {
-    		id: req.params.id
-    }
+    db.saved.destroy({
+        where: {
+            id: req.params.id
+        }
 	})
 	.then(function(event) {
-		res.redirect('/events/saved')
+        res.redirect('/events/saved')
 	})
 })
 
@@ -68,6 +56,17 @@ router.get('/local',function(req,res){
         res.render('events/local', {events, user:req.user})
     })
 })
+
+router.get('/local/new',isLoggedIn, function(req,res){
+    res.render('events/new',{user:req.user});
+});
+
+router.post('/local/new', function(req,res){
+    db.event.create(req.body)
+        .then(function(event){
+            res.redirect('/events/local')
+        });
+});
 
 router.get('/local/:id', function(req,res){
     db.event.findByPk(req.params.id)
@@ -91,6 +90,28 @@ router.put('/local/:id', function(req,res){
     })
 })
 
+
+router.post('/local/:id/comments', function(req,res){
+    db.comment.create({
+        name: req.body.name,
+        content: req.body.content,
+        eventId : req.body.eventId
+    }).then(function(){
+            res.redirect(`/events/local/${req.body.eventId}`);
+        })
+    });
+
+router.get('/saved',isLoggedIn,function(req,res){
+    db.saved.findAll({
+        where:{
+            userId: req.user.id
+        }
+    })
+    .then(function(events){
+        res.render('events/saved',{events})
+    })
+})
+
 router.post('/saved', function(req, res) {
     db.saved.findOrCreate({
         where:{
@@ -107,26 +128,5 @@ router.post('/saved', function(req, res) {
             res.redirect('/events/saved')
         })
     });
-
-router.post('/local/:id/comments', function(req,res){
-    db.comment.create({
-        name: req.body.name,
-        content: req.body.content,
-        eventId : req.body.eventId
-        }).then(function(){
-            res.redirect(`/events/local/${req.body.eventId}`);
-        })
-    });
-
-router.get('/saved',isLoggedIn,function(req,res){
-    db.saved.findAll({
-        where:{
-            userId: req.user.id
-        }
-    })
-    .then(function(events){
-        res.render('events/saved',{events})
-    })
-})
 
 module.exports = router;

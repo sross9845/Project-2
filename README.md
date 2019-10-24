@@ -1,4 +1,4 @@
-# Washington Street Fighter Web App (Possibly extended to other fighting games)
+# Washington Street Fighter Web App 
 
 ## Description
 Being an avid fighting game fan I wanted a central place where people can list events and communicate for local fighting game play. Gone are the days where if you wanted to play any fighting game you would have to go to an arcade to play in person or settle for what was mostly worse versions of the game with the console ports. Being a grassroots community like this community is has it's ups and downs. In California or New York the communities are huge and people move to be in that competitive and fun of an atmosphere. Seattle is growing in this regard. We have bi-weekly meetups on tuesdays and thursdays in Seattle and we have a monthly event that is even bigger. We host large tournaments like Red Bull Conquest and Northwest Majors. How do I know all this you ask? Well that is the problem I am trying to solve. I learned all about this from multiple resources. I stumbled upon the Discord channel for it, found tournaments on smash.gg, and learned about the game through reddit. Sure there are sites that do what parts of my site are going to do but better. However I am looking to make a site that incorporates all of this into one truly making it the perfect spring board and community the Seattle Fighting Game Community (FGC) needs.
@@ -8,7 +8,7 @@ Being an avid fighting game fan I wanted a central place where people can list e
 - [x] Be able to create events 
 - [x] Show event page and info. Where to register and a Description.
 - [x] Save events to your saved events showing event times.
-- [ ] Links to relative articles and discussion platforms
+- [x] Links to relative articles and discussion platforms
 
 ## Stretch Goals
 - [x] Comment Section on pages for discussion. (half mvp half stretch)
