@@ -13,6 +13,7 @@ main{
 
 hr{
     border-color:white;
+    border-top: 3px double white;
 }
 
 p{
@@ -33,6 +34,10 @@ img{
     border: 3px solid black;
 }
 
+.textbox{
+    width:50%;
+    
+}
 .center{
     text-align:center;
 }

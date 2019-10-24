@@ -1,16 +1,16 @@
-<form class="localform" action="/events/local/new" method="POST">
+<form onkeydown="return event.key != 'Enter';" action="/events/local/new" method="POST">
     <p>Name of your event!</p>
-    <input type="text" name="name" id="name" placeholder="Name..."><br />
+    <input type="text" name="name" id="name" placeholder="Name..."><br>
     <p>City the event is taking place</p>
-    <input type="text" name="city" id="city" placeholder="City"><br />
+    <input type="text" name="city" id="city" placeholder="City"><br>
     <p>Please choose the date of your event!</p>
-    <input type="date" name="date" id="date"><br />
+    <input type="date" name="date" id="date"><br>
     <p>Please tell us the start time of your event!</p>
-    <input type="text" name="startTime" id="startTime"><br />
+    <input type="text" name="startTime" id="startTime"><br>
     <p>Please tell us the end time of your event!</p>
-    <input type="text" name="endTime" id="endTime"><br />
+    <input type="text" name="endTime" id="endTime"><br>
     <p>List your venue name and/or address</p>
-    <input type="text" name="venue" id="venue" placeholder="Venue Address"><br />
+    <input type="text" name="venue" id="venue" placeholder="Venue Address"><br>
     <p>Lets now list your description of your event. Things to possibly include</p>
     <ul>
         <li>How to register/Link to register</li>
@@ -20,7 +20,7 @@
         <li>Relevent links (facebook, twitter,discord, etc...)</li>
         <li>Primary Contact for event</li>
     </ul>
-    <input type="text" name="description" id="description" placeholder="Description"><br />
-    <input type="hidden" name="userId" id="userId" value='<%=user.id%>'><br />
+    <textarea name="description" id="description" rows="5" cols="50"></textarea><br>
+    <input type="hidden" name="userId" id="userId" value='<%=user.id%>'><br>
     <input type="submit" value="Add Events">
 </form>

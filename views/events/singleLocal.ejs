@@ -3,6 +3,25 @@
 <h2 class='center'>When: <%=event.date%>, <%=event.startTime%>-<%=event.endTime%></h2>
 <br>
 <hr>
-<br>
+
 <h1 class='center'>Description/Relevant Info:</h1>
-<p class='center'><%=event.description%></p>
+<p><%=event.description%></p>
+<br>
+<hr>
+
+
+<h1>Have a question or want to talk about the event? Leave a comment below:</h1>
+<% comments.forEach(function(comment) { %>
+    <hr>
+    <h3>Name:<%= comment.name%> | Character Main: <%=user.character%></h3>
+    <p>Comment: <%= comment.content%></p>
+    <hr>
+<% }) %>
+
+<form onkeydown="return event.key != 'Enter';" id="form" method="POST" action="/events/local/<%= event.id %>/comments">
+    <input type="hidden" name="name" value="<%=user.name%>">
+    <h3>Comment:</h3>
+    <textarea name="content" id="content" rows="5" cols="50"></textarea>
+    <input type="hidden" name="eventId" value="<%= event.id %>">
+    <input  id="submit" type="submit" value="Submit comment">
+</form>

@@ -38,7 +38,11 @@ router.post('/local/new', function(req,res){
 
 
 router.get('/local',function(req,res){
-    db.event.findAll()
+    db.event.findAll({
+        order: [
+            ['date', 'ASC']
+        ]
+    })
     .then(function(events){
         res.render('events/local', {events})
     })
@@ -47,10 +51,27 @@ router.get('/local',function(req,res){
 router.get('/local/:id', function(req,res){
     db.event.findByPk(req.params.id)
     .then(function(event){
-        console.log(event)
-        res.render('events/singleLocal', {event})
+        db.comment.findAll({
+            where: {
+                eventId: req.params.id
+            }
+        }).then(function(comments){
+            console.log(event)
+            res.render('events/singleLocal', {event,comments,user:req.user})
+
+        })
     })
 })
+
+router.post('/local/:id/comments', function(req,res){
+    db.comment.create({
+        name: req.body.name,
+        content: req.body.content,
+        eventId : req.body.eventId
+        }).then(function(){
+            res.redirect(`/events/local/${req.body.eventId}`);
+        })
+    });
 
 router.get('/saved',isLoggedIn,function(req,res){
     res.send('whats up this is the saved events page')
