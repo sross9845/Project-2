@@ -1,5 +1,5 @@
 # Washington Street Fighter Web App 
-
+Please allow 10-15 seconds for the site to load
 Link to the site: https://sleepy-brook-11754.herokuapp.com/
 
 ## Description
