@@ -72,11 +72,12 @@ app.get('/', function(req, res) {
   res.render('index');
 });
 
-
+//Get resource page
 app.get('/resources',function(req,res){
   res.render('resources')
 })
 
+//grab the profile page list the events that are tied to the user
 app.get('/profile', isLoggedIn, function(req, res) {
   db.event.findAll({
     where: {

@@ -9,7 +9,7 @@ const tournamentsUrl = 'https://api.smash.gg/api/-/gg_api./public/tournaments/sc
 const tournamentUrl = 'https://api.smash.gg/tournament/'
 router.use(methodOverride('_method'));
 
-
+//Route to show next 20 global feature events happening in the world
 router.get('/',function(req,res){
     axios.get(tournamentsUrl).then(function(response){
         res.render('events/global',{responses: response.data.items.entities.tournament})
@@ -18,6 +18,7 @@ router.get('/',function(req,res){
     })
 })
 
+//Route to get edit page for events wher put request is
 router.get('/edit/:id',function(req,res){
     db.event.findByPk(req.params.id)
     .then(function(event){
@@ -25,6 +26,8 @@ router.get('/edit/:id',function(req,res){
     })
 })
 
+
+//Show exact tournament info and a link using the slug to smash.gg site
 router.get('/tournament/:slug',function(req,res){
     axios.get( tournamentUrl + req.params.slug).then(function(response){
         res.render('events/event', {
@@ -33,7 +36,7 @@ router.get('/tournament/:slug',function(req,res){
     })
 })
 
-
+//Delete Saved Event by id passed in from page 
 router.delete('/:id', function(req,res) {
     db.saved.destroy({
         where: {
@@ -45,7 +48,7 @@ router.delete('/:id', function(req,res) {
 	})
 })
 
-
+//Grab local events that are created and sort by date make sure user is logged in so they can create an event
 router.get('/local', isLoggedIn, function(req,res){
     db.event.findAll({
         order: [
@@ -56,18 +59,18 @@ router.get('/local', isLoggedIn, function(req,res){
         res.render('events/local', {events, user:req.user})
     })
 })
-
+//get form for new event that needs logged in premisions
 router.get('/local/new',isLoggedIn, function(req,res){
     res.render('events/new',{user:req.user});
 });
-
+//actually post a new event and then redirect to local events page
 router.post('/local/new', function(req,res){
     db.event.create(req.body)
         .then(function(event){
             res.redirect('/events/local')
         });
 });
-
+//show a single local event find it by the id that gets passed in to the a tag
 router.get('/local/:id', function(req,res){
     db.event.findByPk(req.params.id)
     .then(function(event){
@@ -81,7 +84,7 @@ router.get('/local/:id', function(req,res){
         })
     })
 })
-
+//edit local event from edit page. info gets passed in from the form from EDIT view
 router.put('/local/:id', function(req,res){
     db.event.findByPk(req.params.id)
     .then(function(event){
@@ -90,7 +93,7 @@ router.put('/local/:id', function(req,res){
     })
 })
 
-
+//Creating a comment
 router.post('/local/:id/comments', isLoggedIn, function(req,res){
     db.comment.create({
         name: req.body.name,
@@ -100,7 +103,7 @@ router.post('/local/:id/comments', isLoggedIn, function(req,res){
             res.redirect(`/events/local/${req.body.eventId}`);
         })
     });
-
+//Find all saved messages
 router.get('/saved',isLoggedIn,function(req,res){
     db.saved.findAll({
         where:{
@@ -111,7 +114,7 @@ router.get('/saved',isLoggedIn,function(req,res){
         res.render('events/saved',{events})
     })
 })
-
+//Create a saved event from the add to saved local event page. Then redirect to saved
 router.post('/saved', function(req, res) {
     db.saved.findOrCreate({
         where:{
@@ -128,5 +131,6 @@ router.post('/saved', function(req, res) {
             res.redirect('/events/saved')
         })
     });
+
 
 module.exports = router;
