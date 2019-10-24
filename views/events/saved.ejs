@@ -1,9 +1,17 @@
+<h1 class="center"><u>Saved Events</u></h1>
+<hr>
 <% events.forEach(function(event) { %>
     <div>
         <h2><%= event.name %></h2>
+        <ul>
+        <li><%= event.venue%></li>
+        <li><%= event.date%></li>
+        <li><%= event.startTime%></li>
+        </ul>
         <form method="POST" action="/events/<%=event.id%>/?_method=DELETE">
             <input type="submit" value="Remove event from Saved.">
         </form>
     </div>
-    <% }); %>
+    <hr>
+<% }); %>
 </div>

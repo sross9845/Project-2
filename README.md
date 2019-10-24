@@ -7,11 +7,11 @@ Being an avid fighting game fan I wanted a central place where people can list e
 - [x] Show tournaments happening around the world (prototyped and can be improved by Graph QL).
 - [x] Be able to create events 
 - [x] Show event page and info. Where to register and a Description.
-- [ ] Save events to your saved events showing event times.
+- [x] Save events to your saved events showing event times.
 - [ ] Links to relative articles and discussion platforms
 
 ## Stretch Goals
-- [ ] Comment Section on pages for discussion. (half mvp half stretch)
+- [x] Comment Section on pages for discussion. (half mvp half stretch)
 - [ ] Chat area for discussion
 - [ ] Search by city
 - [ ] Twitch channel area that could possibly tie into the chat area
@@ -29,3 +29,12 @@ Today was displaying the info on the single events when clicked. Getting the inf
 ![Screenshot of Epoch Time](https://i.imgur.com/VmAoFQg.png)
 Heres how it looks now:
 ![Screenshot of epoch time after JS fix](https://i.imgur.com/AzvHz2y.png)
+
+## Day 6 (Wednesday)
+Today I finished all of my routes. I got my local events displaying well. I have a way for you to save them to your saved events which displays the event, the date, and the start time. I added a few more embedded twitter profiles which was VERY easy to do. Twitter makes this so very easy. All you have to do is add in is provided code to your HTML. I finished the profile which will list all posts the user has on their page. The only thing that threw me for a loop was the put route. We hadn't really done that in practice yet with something other than a JSON file. After some looking around I found the update function and used that which worked perfectly! I did not run in to many problems during this whole experience which made it very very enjoyable.
+
+Example code of twitter embedded profile:
+![Screenshot of twitter code](https://i.imgur.com/EQqaQgH.png)
+
+## Day 7 (Thursday)
+I am going to work on cleaning up my code or anything that is not semantic. Going to flesh out my resources route. This is an extra component that I find useful so since I have the time I am going to get that fleshed out. Otherwise I am pretty set and ready to present!
